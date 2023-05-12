@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
   }
   
   h1 {
@@ -58,4 +58,13 @@ body {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+#companyTable a {
+  color: #337ab7; /* Change the link color to your preference */
+  text-decoration: none; /* Remove underline */
+}
+
+#companyTable a:hover {
+  text-decoration: underline; /* Add underline on hover */
 }

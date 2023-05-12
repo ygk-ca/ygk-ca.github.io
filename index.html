@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Top Revenue Companies</title>
+    <title>List of Sponsors</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,66 +11,25 @@
     
 
     <div id="mainContent">
-        <h1>Top Revenue Companies</h1>
+        <h1>List of Sponsors</h1>
+        <p style="text-align: center;"><em>Click on a table header to sort by that property. Default is by Top Revenue.</em></p>
         <table id="companyTable">
             <thead>
-                <tr>
-                    <th>Company Name</th>
-                    <th>Address Line 1</th>
-                    <th>Postal Code</th>
-                    <th>Phone</th>
-                    <th>URL</th>
-                    <th>Revenue (USD)</th>
-                    <th>Business Description</th>
-                </tr>
+              <tr>
+                <th data-column="Company Name">Company Name <span class="sort-arrow" data-column="Company Name"></span></th>
+                <th data-column="Address Line 1">Address Line 1 <span class="sort-arrow" data-column="Address Line 1"></span></th>
+                <th data-column="Postal Code">Postal Code <span class="sort-arrow" data-column="Postal Code"></span></th>
+                <th data-column="Phone">Phone <span class="sort-arrow" data-column="Phone"></span></th>
+                <th data-column="URL">URL <span class="sort-arrow" data-column="URL"></span></th>
+                <th data-column="Revenue (USD)">Revenue (USD) <span class="sort-arrow" data-column="Revenue (USD)"></span></th>
+                <th data-column="Business Description">Business Description <span class="sort-arrow" data-column="Business Description"></span></th>
+              </tr>
             </thead>
             <tbody id="tableBody"></tbody>
-        </table>
+          </table>
     </div>
-
-    <script>
-        function formatCurrency(number) {
-            return '$' + number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        }
-
-        // Read the CSV file
-        function readCSVFile(filePath) {
-            const request = new XMLHttpRequest();
-            request.open("GET", filePath, true);
-            request.onreadystatechange = function () {
-                if (request.readyState === 4 && request.status === 200) {
-                    const contents = request.responseText;
-                    const lines = contents.split("\n");
-
-                    for (let i = 1; i < lines.length; i++) { // Start from index 1 to skip the header row
-                        const cells = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-                        if (cells.length === 7) {
-                            const row = document.createElement("tr");
-
-                            for (let j = 0; j < cells.length; j++) {
-                                const cell = document.createElement("td");
-                                if (j === 5) { // Format the "Revenue (USD)" column
-                                    cell.textContent = formatCurrency(cells[j]);
-                                } else {
-                                    cell.textContent = cells[j];
-                                }
-                                row.appendChild(cell);
-                            }
-
-                            document.getElementById("tableBody").appendChild(row);
-                        }
-                    }
-
-                    // Hide the loading screen and show the table
-                    document.getElementById("loadingScreen").style.display = "none";
-                    document.getElementById("mainContent").style.display = "table";
-                    document.getElementById("mainContent").style.display = "h1";
-                }
-            };
-            request.send();
-        }
-
-        readCSVFile('/top_revenue.csv');
+    
+    <script src="table.js">
     </script>
 </body>
 </html>
