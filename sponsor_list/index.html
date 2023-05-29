@@ -14,6 +14,20 @@
     </style>
 </head>
 <body>
+    <script>
+        function passWord() 
+        {
+            var password = "ygksponsors2023";
+            (function passcodeprotect() {
+                var passcode = prompt("Enter website password to continue:");
+                while (passcode !== password) {
+                alert("Incorrect. Try again.");
+                return passcodeprotect();
+                }
+            }());
+            } 
+        passWord();
+    </script>
    
     <div style="padding: 1.5%;">
         <a href="/">Home</a>
