@@ -70,6 +70,14 @@ cell.textContent = formatSalesValue(filteredCells[j]);
 else if (filteredHeadings[j] === 'URL') {
 cell.innerHTML = createLinkElement(filteredCells[j]);
 }
+else if (filteredHeadings[j] === 'D&B Legal Status Type') {
+  if (filteredCells[j] === 'Corporation') {
+    cell.textContent = 'Corporation';
+  }
+  else {
+    cell.textContent = formatLegalStatus(filteredCells[j]);
+  }
+}
 else {
 cell.textContent = filteredCells[j];
 }
@@ -81,6 +89,11 @@ tbody.appendChild(row);
 table.appendChild(thead);
 table.appendChild(tbody);
 return table;
+}
+
+function formatLegalStatus(heading) {
+  const emptyValueText = 'Non-Corporation';
+  return emptyValueText;
 }
 
 function formatURLHeading(heading) {
