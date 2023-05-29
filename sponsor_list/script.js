@@ -72,7 +72,7 @@ cell.innerHTML = createLinkElement(filteredCells[j]);
 }
 else if (filteredHeadings[j] === 'D&B Legal Status Type') {
   if (filteredCells[j] === 'Corporation') {
-    cell.textContent = 'Corporation';
+    cell.textContent = 'D&B Corporation (DBC)';
   }
   else {
     cell.textContent = formatLegalStatus(filteredCells[j]);
@@ -92,7 +92,7 @@ return table;
 }
 
 function formatLegalStatus(heading) {
-  const emptyValueText = 'Non-Corporation';
+  const emptyValueText = 'D&B Non-Listed (DBN)';
   return emptyValueText;
 }
 
