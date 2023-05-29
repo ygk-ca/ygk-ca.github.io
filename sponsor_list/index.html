@@ -7,7 +7,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         .table_container {
-  overflow-x: auto;
+  overflow-x: scroll;
+  word-wrap: break-word;
+  width: 99.5%;
 }
     </style>
 </head>
@@ -20,7 +22,8 @@
             <input type="file" id="csvFile" accept=".csv">
             <button type="button" onclick="handleFile()">Upload</button>
         </form> -->
-        <br>
+        
+        <p>Scroll left-right for additional company information<br>Filter the table using this search bar.</p>
         <input class="form-control" id="myInput" type="text" placeholder="Search.." style="width: 25%;">
         <br>
         <div class="table_container">
